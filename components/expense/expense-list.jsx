@@ -167,10 +167,10 @@ const ExpenseList = ({ refreshTrigger }) => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-3 mb-2">
                     <div className="flex items-center space-x-2">
-                      <span className="text-lg font-semibold dark:text-zinc-100 text-gray-900">
+                      <span className="text-lg font-semibold text-foreground">
                         ₹{expense.amount.toFixed(2)}
                       </span>
-                      <span className={`text-xs px-2 py-1 rounded-full font-medium ₹{getCategoryColor(expense.category)}`}>
+                      <span className={`text-xs px-2 py-1 rounded-full font-medium ${getCategoryColor(expense.category)}`}>
                         {expense.category}
                       </span>
                       {expense.is_fixed && (

@@ -1,6 +1,6 @@
-# FinanceTracker Frontend
+# Finsight Frontend
 
-A modern, responsive React/Next.js frontend for the FinanceTracker application.
+A modern, responsive React/Next.js frontend for the Finsight application.
 
 ## Features
 
