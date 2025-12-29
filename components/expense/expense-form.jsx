@@ -7,9 +7,10 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { Switch } from '@/components/ui/switch'
+import { DatePicker } from '@/components/ui/date-picker'
 import { api } from '@/lib/api'
 import { useAuth } from '@/lib/auth-context'
-import { DollarSign, Tag, FileText, Calendar, Plus } from 'lucide-react'
+import { DollarSign, Plus } from 'lucide-react'
 import { toast } from 'sonner'
 
 const ExpenseForm = ({ onExpenseAdded }) => {
@@ -21,9 +22,10 @@ const ExpenseForm = ({ onExpenseAdded }) => {
     amount: '',
     category: '',
     description: '',
-    is_fixed: false,
-    expense_date: new Date().toISOString().split('T')[0]
+    is_fixed: false
   })
+  
+  const [selectedDate, setSelectedDate] = useState(new Date())
 
   const categories = [
     'Food', 'Transportation', 'Housing', 'Utilities', 'Healthcare',
@@ -42,16 +44,16 @@ const ExpenseForm = ({ onExpenseAdded }) => {
         category: formData.category,
         description: formData.description,
         is_fixed: formData.is_fixed,
-        expense_date: formData.expense_date
+        expense_date: selectedDate.toISOString().split('T')[0]
       })
       
       setFormData({
         amount: '',
         category: '',
         description: '',
-        is_fixed: false,
-        expense_date: new Date().toISOString().split('T')[0]
+        is_fixed: false
       })
+      setSelectedDate(new Date())
       
       if (onExpenseAdded) onExpenseAdded()
       toast.success('Expense added successfully')
@@ -131,17 +133,11 @@ const ExpenseForm = ({ onExpenseAdded }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <label className="text-sm font-medium">Date</label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                <Input
-                  name="expense_date"
-                  type="date"
-                  value={formData.expense_date}
-                  onChange={handleChange}
-                  className="pl-10"
-                  required
-                />
-              </div>
+              <DatePicker
+                date={selectedDate}
+                setDate={setSelectedDate}
+                placeholder="Select expense date"
+              />
             </div>
             
             <div className="space-y-2">

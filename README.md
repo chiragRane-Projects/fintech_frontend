@@ -1,6 +1,6 @@
-# Finsight Frontend
+# Finoplex Frontend
 
-A modern, responsive React/Next.js frontend for the Finsight application.
+A modern, responsive React/Next.js frontend for the Finoplex application.
 
 ## Features
 

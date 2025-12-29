@@ -28,7 +28,7 @@ const LandingPage = ({ onGetStarted }) => {
               <Wallet className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-              Finsight
+              Finoplex
             </span>
           </div>
           <div className="flex items-center gap-4">

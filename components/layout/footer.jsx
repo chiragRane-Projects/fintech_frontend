@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Github } from 'lucide-react'
+import { Instagram, Github } from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
           
           <div className="flex items-center space-x-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/chiragrane04"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -19,15 +19,7 @@ const Footer = () => {
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com"
+              href="https://github.com/chiragRane-Projects"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"

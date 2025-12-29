@@ -8,7 +8,7 @@ import "./globals.css";
 const outfit = Outfit({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "Finsight",
+  title: "Finoplex",
   description: "Personal expense tracking application",
 };
 

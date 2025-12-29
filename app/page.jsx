@@ -4,10 +4,17 @@ import { useAuth } from '@/lib/auth-context'
 import { Dashboard } from '@/components/dashboard'
 import { LandingPage } from '@/components/landing-page'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default function Home() {
   const { user, loading } = useAuth()
   const router = useRouter()
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push('/dashboard')
+    }
+  }, [user, loading, router])
 
   if (loading) {
     return (
@@ -18,7 +25,6 @@ export default function Home() {
   }
 
   if (user) {
-    router.push('/dashboard')
     return null
   }
 

@@ -200,7 +200,7 @@ const AuthForm = ({ onBack }) => {
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {isLogin ? (
-                        <>New to Finsight? <span className="font-semibold underline underline-offset-4">Create an account</span></>
+                        <>New to Finoplex? <span className="font-semibold underline underline-offset-4">Create an account</span></>
                     ) : (
                         <>Already a member? <span className="font-semibold underline underline-offset-4">Sign in</span></>
                     )}
