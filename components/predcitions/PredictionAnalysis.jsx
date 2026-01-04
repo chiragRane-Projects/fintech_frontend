@@ -12,14 +12,10 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 
-import AIExplanationCard from "./AIExplanationCard"
-
 export default function PredictionAnalytics({ userId }) {
   const [prediction, setPrediction] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  const [explanation, setExplanation] = useState("")
-  const [explanationLoading, setExplanationLoading] = useState(false)
 
   const now = new Date()
   const month = now.getMonth() + 1
@@ -42,40 +38,6 @@ export default function PredictionAnalytics({ userId }) {
 
     fetchPrediction()
   }, [userId])
-
-  // ---------------- Fetch AI Explanation ----------------
-  useEffect(() => {
-    if (!prediction) return
-
-    const fetchExplanation = async () => {
-      setExplanationLoading(true)
-
-      try {
-        const payload = {
-          income: prediction.income,
-          total_expense: prediction.total_expense,
-          savings_rate: prediction.savings_rate,
-          fixed_expense_ratio: prediction.fixed_expense_ratio,
-          predicted_expense: prediction.predicted_expense,
-          predicted_net_balance: prediction.predicted_net_balance,
-          confidence: prediction.confidence,
-          risk_flags: prediction.risk_projection,
-        }
-
-        const res = await api.aiExplainer(payload)
-        setExplanation(res.explanation)
-      } catch (err) {
-        console.error("AI explanation error:", err)
-        setExplanation(
-          "We were unable to generate an AI explanation at this moment."
-        )
-      } finally {
-        setExplanationLoading(false)
-      }
-    }
-
-    fetchExplanation()
-  }, [prediction])
 
   // ---------------- UI ----------------
   return (
@@ -143,12 +105,7 @@ export default function PredictionAnalytics({ userId }) {
         </CardContent>
       </Card>
 
-      {/* AI Explanation */}
-      <AIExplanationCard
-        explanation={explanation}
-        loading={explanationLoading}
-        confidence={prediction?.confidence}
-      />
+      
     </div>
   )
 }
